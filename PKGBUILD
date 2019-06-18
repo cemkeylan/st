@@ -2,14 +2,15 @@
 
 pkgname=st-ckyln
 _pkgname=st
-pkgver=20190618
+pkgrel=1
+pkgver=v20190618.2.gb454b64
 pkgdesc="Simple Terminal from suckless.org (Fork)"
-url="https://git.ckyln.com/cemkeylan/st.git"
+url="https://git.ckyln.com/cemkeylan/st"
 arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libxft')
 makedepends=('git')
-source=('https://git.ckyln.com/cemkeylan/st.git')
+source=('git+https://git.ckyln.com/cemkeylan/st.git')
 md5sums=('SKIP')
 
 provides=('st')
@@ -25,8 +26,9 @@ build() {
 }
 
 package() {
-	cd ${_pkgnmae}
+	cd ${_pkgname}
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
 	install -Dm644 LICENSE "${pkgdir}/usr/share/doc/${pkgname}/LICENSE"
-	install -Dm644 "${pkgdir}/usr/share/doc/${pkgname}/README.md"
+	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
 }
+
