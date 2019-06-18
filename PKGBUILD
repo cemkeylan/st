@@ -15,6 +15,7 @@ md5sums=('SKIP')
 provides=('st')
 conflicts=('st')
 
+pkgber() {}
 build() {
 	cd $srcdir/${_pkgname}
 	make
