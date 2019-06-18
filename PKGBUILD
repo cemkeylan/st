@@ -15,7 +15,10 @@ md5sums=('SKIP')
 provides=('st')
 conflicts=('st')
 
-pkgber() {}
+pkgver() {
+	cd ${_pkgname}
+	git describe --tags | sed 's/-/./g'
+}
 build() {
 	cd $srcdir/${_pkgname}
 	make
