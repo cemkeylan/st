@@ -1,6 +1,6 @@
-# Maintainer: Cem Keylan
+# Maintainer: Cem Keylan <cem at ckyln dot com>
 
-pkgname=st-ckyln
+pkgname=st-ckyln-git
 _pkgname=st
 pkgrel=1
 pkgver=v20190618.2.gb454b64
@@ -31,4 +31,3 @@ package() {
 	install -Dm644 LICENSE "${pkgdir}/usr/share/doc/${pkgname}/LICENSE"
 	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
 }
-
