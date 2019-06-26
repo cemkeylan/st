@@ -104,6 +104,11 @@ static const char *colorname[] = {
 	"#ff79c6",  /* 13: brmagenta*/
 	"#8be9fd",  /* 14: brcyan   */
 	"#ffffff",  /* 15: brwhite  */
+
+
+	[256] = "#282a36", /* background */
+	[257] = "#f8f8f2", /* foreground */
+
 };
 
 /* Terminal colors for alternate (light) palette */
@@ -125,6 +130,9 @@ static const char *altcolorname[] = {
 	"#6c71c4",  /* 13: brmagenta*/
 	"#586e75",  /* 14: brcyan   */
 	"#002b36",  /* 15: brwhite  */
+
+	[256] = "#fdf6e3",
+	[257] = "#657b83",
 };
 
 /*
@@ -132,10 +140,10 @@ static const char *altcolorname[] = {
  * foreground, background, cursor
  */
 
-unsigned int defaultfg = 12;
-unsigned int defaultbg = 8;
-static unsigned int defaultcs = 14;
-static unsigned int defaultrcs = 15;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
