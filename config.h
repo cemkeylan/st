@@ -87,40 +87,55 @@ float alpha = 0.92;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	[0] = "#000000", /* black   */
-	[1] = "#ff5555", /* red     */
-	[2] = "#50fa7b", /* green   */
-	[3] = "#f1fa8c", /* yellow  */
-	[4] = "#bd93f9", /* blue    */
-	[5] = "#ff79c6", /* magenta */
-	[6] = "#8be9fd", /* cyan    */
-	[7] = "#bbbbbb", /* white   */
-	
-	/* 8 bright colors */
-	[8]  = "#44475a", /* black   */
-	[9]  = "#ff5555", /* red     */
-	[10] = "#50fa7b", /* green   */
-	[11] = "#f1fa8c", /* yellow  */
-	[12] = "#bd93f9", /* blue    */
-	[13] = "#ff79c6", /* magenta */
-	[14] = "#8be9fd", /* cyan    */
-	[15] = "#ffffff", /* white   */
-	
-	/* special colors */
-	[256] = "#282a36", /* background */
-	[257] = "#f8f8f2", /* foreground */
+	/* solarized dark */
+	"#000000",  /*  0: black    */
+	"#ff5555",  /*  1: red      */
+	"#50fa7b",  /*  2: green    */
+	"#f1fa8c",  /*  3: yellow   */
+	"#bd93f9",  /*  4: blue     */
+	"#ff79c6",  /*  5: magenta  */
+	"#8be9fd",  /*  6: cyan     */
+	"#bbbbbb",  /*  7: white    */
+	"#44475a",  /*  8: brblack  */
+	"#ff5555",  /*  9: brred    */
+	"#50fa7b",  /* 10: brgreen  */
+	"#f1fa8c",  /* 11: bryellow */
+	"#8be9fd",  /* 12: brblue   */
+	"#ff79c6",  /* 13: brmagenta*/
+	"#8be9fd",  /* 14: brcyan   */
+	"#ffffff",  /* 15: brwhite  */
 };
 
+/* Terminal colors for alternate (light) palette */
+static const char *altcolorname[] = {
+	/* solarized light */
+	"#eee8d5",  /*  0: black    */
+	"#dc322f",  /*  1: red      */
+	"#859900",  /*  2: green    */
+	"#b58900",  /*  3: yellow   */
+	"#268bd2",  /*  4: blue     */
+	"#d33682",  /*  5: magenta  */
+	"#2aa198",  /*  6: cyan     */
+	"#073642",  /*  7: white    */
+	"#fdf6e3",  /*  8: brblack  */
+	"#cb4b16",  /*  9: brred    */
+	"#93a1a1",  /* 10: brgreen  */
+	"#839496",  /* 11: bryellow */
+	"#657b83",  /* 12: brblue   */
+	"#6c71c4",  /* 13: brmagenta*/
+	"#586e75",  /* 14: brcyan   */
+	"#002b36",  /* 15: brwhite  */
+};
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs = 257;
-static unsigned int defaultrcs = 257;
+
+unsigned int defaultfg = 12;
+unsigned int defaultbg = 8;
+static unsigned int defaultcs = 14;
+static unsigned int defaultrcs = 15;
 
 /*
  * Default shape of cursor
@@ -208,6 +223,8 @@ static Shortcut shortcuts[] = {
 	{ WINMOD,               XK_C,           externalpipe,   { .v = copyurlcmd } },
 	{ WINMOD,               XK_O,           externalpipe,   { .v = openurlcmd } },
 	{ TERMMOD,              XK_O,           externalpipe,   { .v = copyoutput } },
+	{ XK_ANY_MOD,           XK_F6,          swapcolors,     {.i =  0} },
+
 	
 };
 
