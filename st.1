@@ -142,13 +142,13 @@ Print the full screen to the
 Print the selection to the
 .I iofile.
 .TP
-.B Ctrl-Shift-Page Up
+.B Win-Shift-j
 Increase font size.
 .TP
-.B Ctrl-Shift-Page Down
+.B Win-Shift-k
 Decrease font size.
 .TP
-.B Ctrl-Shift-Home
+.B Win-Shift-h
 Reset to default font size.
 .TP
 .B Ctrl-Shift-y
@@ -159,12 +159,25 @@ Copy the selected text to the clipboard selection.
 .TP
 .B Ctrl-Shift-v
 Paste from the clipboard selection.
+.TP
+.B Ctrl-Shift-e
+Edit st's stdout on an editor
+.TP
+.B Ctrl-Shift-o
+Copy a command's output
+.TP
+.B Win-Shift-o
+Follow a link
+.TP
+.B Win-Shift-c
+Copy a link to the clipboard
 .SH CUSTOMIZATION
 .B st
 can be customized by creating a custom config.h and (re)compiling the source
 code. This keeps it fast, secure and simple.
 .SH AUTHORS
 See the LICENSE file for the authors.
+Fork by Cem Keylan (cem@ckyln.com)
 .SH LICENSE
 See the LICENSE file for the terms of redistribution.
 .SH SEE ALSO
