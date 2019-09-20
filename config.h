@@ -192,8 +192,8 @@ static char *stdoutedit[] = {
  *	"cat > \"$tmpfile\"", 
  *	"st -e \"$EDITOR\" \"$tmpfile\"" 
  */
-	"/bin/sh",
-	"/home/cem/.scripts/editstdout"
+	"/bin/sh", "-c",
+	"~/.scripts/editstdout"
 };
 
 static char *openurlcmd[] = { "/bin/sh", "-c",
