@@ -49,7 +49,8 @@ install: st
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
 	tic -sx st.info
 	@echo Please see the README file regarding the terminfo entry of st.
-	cp -f st.desktop $(DESTDIR)/usr/share/applications
+	mkdir -p $(DESTDIR)/usr/share/applications
+	cp -f st.desktop $(DESTDIR)/usr/share/applications/st.desktop
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
