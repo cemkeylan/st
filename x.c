@@ -30,9 +30,10 @@ typedef struct {
 } Shortcut;
 
 typedef struct {
-	uint b;
-	uint mask;
-	char *s;
+	uint mod; 
+	uint button; 
+	void (*func)(const Arg *); 
+	const Arg arg; 
 } MouseShortcut;
 
 typedef struct {
@@ -70,6 +71,7 @@ static void selpaste(const Arg *);
 static void zoom(const Arg *);
 static void zoomabs(const Arg *);
 static void zoomreset(const Arg *);
+static void ttysend(const Arg *);
 
 /* config.h for applying patches and the configuration. */
 #include "config.h"
@@ -328,6 +330,12 @@ zoomreset(const Arg *arg)
 	}
 }
 
+void 
+ttysend(const Arg *arg) 
+{ 
+       ttywrite(arg->s, strlen(arg->s), 1); 
+}
+
 int
 evcol(XEvent *e)
 {
@@ -437,9 +445,9 @@ bpress(XEvent *e)
 	}
 
 	for (ms = mshortcuts; ms < mshortcuts + LEN(mshortcuts); ms++) {
-		if (e->xbutton.button == ms->b
-				&& match(ms->mask, e->xbutton.state)) {
-			ttywrite(ms->s, strlen(ms->s), 1);
+               if (e->xbutton.button == ms->button 
+                               && match(ms->mod, e->xbutton.state)) { 
+                       ms->func(&(ms->arg)); 
 			return;
 		}
 	}
