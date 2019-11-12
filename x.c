@@ -27,7 +27,6 @@ typedef struct {
 	KeySym keysym;
 	void (*func)(const Arg *);
 	const Arg arg;
-	uint release;
 } Shortcut;
 
 typedef struct {
@@ -35,6 +34,7 @@ typedef struct {
 	uint button; 
 	void (*func)(const Arg *); 
 	const Arg arg; 
+	uint release;
 } MouseShortcut;
 
 typedef struct {
