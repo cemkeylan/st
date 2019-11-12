@@ -3,3 +3,5 @@ st.o
 x.o
 *.orig
 *.rej
+*.patch
+config.h
